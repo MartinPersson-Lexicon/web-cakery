@@ -10,12 +10,12 @@ const PAGE_SIZE = 5;
 export default function Products() {
   const [page, setPage] = useState(1);
   const [category, setCategory] = useState("all");
-  const [cartOpen, setCartOpen] = useState(false);
+  const [isCartOpen, setCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
 
-  const handleBuy = (product) => {
+  const handleAddToCart = (product) => {
     setCartItems((s) => [...s, product]);
-    setCartOpen(true);
+    setCartOpen(false);
   };
 
   const filtered = products.filter((p) => {
@@ -55,10 +55,11 @@ export default function Products() {
               style={{
                 marginRight: 8,
                 padding: "6px 10px",
-                borderRadius: 4,
-                border:
-                  category === "all" ? "2px solid #333" : "1px solid #ccc",
-                background: category === "all" ? "#f5f5f5" : "white",
+                borderRadius: 6,
+                border: "1px solid white",
+                fontWeight: category === "all" ? "bold" : "normal",
+                background: category === "all" ? "#26AB95" : "darkgray",
+                color: category === "all" ? "white" : "black",
               }}
             >
               All
@@ -72,10 +73,11 @@ export default function Products() {
               style={{
                 marginRight: 8,
                 padding: "6px 10px",
-                borderRadius: 4,
-                border:
-                  category === "cupcake" ? "2px solid #333" : "1px solid #ccc",
-                background: category === "cupcake" ? "#f5f5f5" : "white",
+                borderRadius: 6,
+                border: "1px solid white",
+                fontWeight: category === "cupcake" ? "bold" : "normal",
+                background: category === "cupcake" ? "#26AB95" : "darkgray",
+                color: category === "cupcake" ? "white" : "black",
               }}
             >
               Cupcakes
@@ -88,10 +90,11 @@ export default function Products() {
               aria-pressed={category === "wedding"}
               style={{
                 padding: "6px 10px",
-                borderRadius: 4,
-                border:
-                  category === "wedding" ? "2px solid #333" : "1px solid #ccc",
-                background: category === "wedding" ? "#f5f5f5" : "white",
+                borderRadius: 6,
+                border: "1px solid white",
+                fontWeight: category === "wedding" ? "bold" : "normal",
+                background: category === "wedding" ? "#26AB95" : "darkgray",
+                color: category === "wedding" ? "white" : "black",
               }}
             >
               Wedding cakes
@@ -141,7 +144,7 @@ export default function Products() {
               image={p.image}
               title={p.title}
               price={p.price}
-              onBuy={() => handleBuy(p)}
+              onAddToCart={() => handleAddToCart(p)}
               index={i}
             />
           ))}
@@ -149,14 +152,16 @@ export default function Products() {
       </div>
 
       <CartModal
-        open={cartOpen}
+        isOpen={isCartOpen}
         items={cartItems}
         onClose={() => setCartOpen(false)}
         onRemove={(item) =>
           setCartItems((s) => s.filter((i, idx) => i !== item))
         }
         onCheckout={() => {
-          alert("Checkout placeholder");
+          alert(
+            "VIP Checkout!\n\nYou'r order is being processed and will ship whithin one working day.\n\nThank you for your order!"
+          );
           setCartItems([]);
           setCartOpen(false);
         }}
@@ -166,7 +171,7 @@ export default function Products() {
         <button
           onClick={() => setPage((s) => Math.max(1, s - 1))}
           disabled={page === 1}
-          style={{ marginRight: 8 }}
+          style={{ marginRight: 8, borderRadius: 6, border: "1px solid white" }}
         >
           Prev
         </button>
@@ -178,7 +183,10 @@ export default function Products() {
             aria-current={p === page ? "page" : undefined}
             style={{
               marginRight: 6,
+              borderRadius: 6,
+              border: "1px solid white",
               fontWeight: p === page ? "bold" : "normal",
+              backgroundColor: p === page ? "#26AB95" : "darkgray",
             }}
           >
             {p}
@@ -188,7 +196,7 @@ export default function Products() {
         <button
           onClick={() => setPage((s) => Math.min(totalPages, s + 1))}
           disabled={page === totalPages}
-          style={{ marginLeft: 8 }}
+          style={{ marginLeft: 8, borderRadius: 6, border: "1px solid white" }}
         >
           Next
         </button>

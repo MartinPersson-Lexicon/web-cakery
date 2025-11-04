@@ -1,13 +1,13 @@
 import React from "react";
 
 export default function CartModal({
-  open,
+  isOpen,
   items = [],
   onClose,
   onRemove,
   onCheckout,
 }) {
-  if (!open) return null;
+  if (!isOpen) return null;
 
   return (
     <div
@@ -27,7 +27,7 @@ export default function CartModal({
       <div
         className="cart-modal-panel"
         style={{
-          background: "lightgray",
+          background: "#26AB95",
           padding: 20,
           width: 480,
           maxHeight: "80%",
@@ -64,7 +64,14 @@ export default function CartModal({
                   <div style={{ fontWeight: 600 }}>{it.title}</div>
                   <div style={{ color: "#666" }}>{it.price}</div>
                 </div>
-                <button onClick={() => onRemove(it)} style={{ marginLeft: 8 }}>
+                <button
+                  onClick={() => onRemove(it)}
+                  style={{
+                    marginLeft: 8,
+                    borderRadius: 6,
+                    border: "1px solid white",
+                  }}
+                >
                   Remove
                 </button>
               </li>
@@ -80,11 +87,25 @@ export default function CartModal({
             marginTop: 12,
           }}
         >
-          <button onClick={onClose}>Close</button>
+          <button
+            onClick={onClose}
+            style={{
+              marginLeft: 8,
+              borderRadius: 6,
+              border: "1px solid white",
+            }}
+          >
+            Close
+          </button>
           <button
             onClick={onCheckout}
             disabled={items.length === 0}
             className="btn btn-primary"
+            style={{
+              marginLeft: 8,
+              borderRadius: 6,
+              border: "1px solid white",
+            }}
           >
             Checkout
           </button>
