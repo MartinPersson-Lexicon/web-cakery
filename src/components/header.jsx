@@ -9,7 +9,7 @@ export default function Header() {
           className="rounded-circle"
           src={logo}
           alt="Cupcake logo"
-          style={{ width: "80px" }}
+          style={{ width: "100px" }}
         />
       </Link>
       <ul className="navbar-nav">
