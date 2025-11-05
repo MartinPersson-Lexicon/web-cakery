@@ -11,6 +11,6 @@ logotype and product images for learning purposes.
 2. This is not spec work (work done for free in hopes to get elected from a pool of 
 contestant and only 1 get paid)
 
-Tech stack: VS Code, JavaScript, HTML, CSS and Bootsrap.
+Tech stack: VS Code, JavaScript, HTML, CSS and Bootstrap.
 
 /Martin Persson
