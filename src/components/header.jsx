@@ -1,37 +1,37 @@
 import logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Header() {
   return (
     <nav className="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center mb-3">
-      <Link className="navbar-brand" to="/home">
+      <NavLink className="navbar-brand" to="/home">
         <img
           className="rounded-circle"
           src={logo}
           alt="Cupcake logo"
           style={{ width: "100px" }}
         />
-      </Link>
-      <ul className="navbar-nav" style={{ fontSize: "2rem", color: "red" }}>
-        <li className="nav-item nav-link">
-          <a className="nav-link" href="/home">
+      </NavLink>
+      <ul className="navbar-nav" style={{ fontSize: "1.1rem" }}>
+        <li className="nav-item">
+          <NavLink to="/home" className="nav-link">
             Home
-          </a>
+          </NavLink>
         </li>
-        <li className="nav-item nav-link">
-          <a className="nav-link" href="/about">
+        <li className="nav-item">
+          <NavLink to="/about" className="nav-link">
             About
-          </a>
+          </NavLink>
         </li>
-        <li className="nav-item nav-link">
-          <a className="nav-link" href="/products">
+        <li className="nav-item">
+          <NavLink to="/products" className="nav-link">
             Products
-          </a>
+          </NavLink>
         </li>
-        <li className="nav-item nav-link">
-          <a className="nav-link" href="/contact">
+        <li className="nav-item">
+          <NavLink to="/contact" className="nav-link">
             Contact
-          </a>
+          </NavLink>
         </li>
       </ul>
     </nav>
