@@ -5,11 +5,7 @@ export default function Contact() {
   return (
     <div>
       <Header />
-      <div
-        style={{
-          margin: "2rem",
-        }}
-      >
+      <div style={{ margin: "2rem" }}>
         <h3>
           Home delivery service: All the city of Stockholm (redacted) and Malmo
           (redacted) with additional cost.
@@ -27,9 +23,7 @@ export default function Contact() {
           Saturday 9 a.m. at 2 p.m.
         </h4>
       </div>
-      <div style={{ marginTop: "16rem" }}>
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }

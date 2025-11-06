@@ -37,7 +37,7 @@ export default function Products() {
     <div>
       <Header />
       <div style={{ margin: "2rem" }}>
-        <div style={{ padding: "1rem" }}>
+        <div>
           <div
             style={{
               display: "flex",
@@ -168,11 +168,8 @@ export default function Products() {
           }}
         />
 
-        <div>
-          <nav
-            aria-label="Products pagination"
-            style={{ padding: "0 1rem 2rem" }}
-          >
+        <div style={{ padding: "1rem 1rem 1rem" }}>
+          <nav aria-label="Products pagination">
             <button
               onClick={() => setPage((s) => Math.max(1, s - 1))}
               disabled={page === 1}
@@ -216,10 +213,7 @@ export default function Products() {
           </nav>
         </div>
       </div>
-
-      <div style={{ marginTop: "16rem" }}>
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }

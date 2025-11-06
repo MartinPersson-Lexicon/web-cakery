@@ -5,11 +5,7 @@ export default function About() {
   return (
     <div>
       <Header />
-      <div
-        style={{
-          margin: "2rem",
-        }}
-      >
+      <div style={{ margin: "2rem" }}>
         <h3>
           At Munamii Cakery, each cake, each box of cupcakes that we make has a
           very special value for us.
@@ -23,9 +19,7 @@ export default function About() {
           offer you a new way to shop through our website.
         </h4>
       </div>
-      <div style={{ marginTop: "16rem" }}>
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }
